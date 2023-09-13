@@ -14,10 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness:
-            Brightness.dark, //to makes App in dark theme//*ThemeData().dark().
+        brightness: Brightness.dark,
+        fontFamily:
+            'Poppins', //to makes App in dark theme//*ThemeData().dark().
       ),
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }
