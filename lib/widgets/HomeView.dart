@@ -8,7 +8,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return Container();
+            },
+          );
+        },
         child: Icon(Icons.add),
       ),
       body: NotesBody(),

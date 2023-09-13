@@ -12,9 +12,14 @@ class NotesBody extends StatelessWidget {
           height: 30,
         ),
         const CustomAppbar(),
-        Expanded(child: ListView.builder(
+        Expanded(
+            child: ListView.builder(
+          padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            return NotesItem();
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: NotesItem(),
+            );
           },
         ))
       ],
