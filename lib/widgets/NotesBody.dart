@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:notes_app/widgets/NotesItem.dart';
 
 class NotesBody extends StatelessWidget {
@@ -11,7 +12,7 @@ class NotesBody extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        const CustomAppbar(),
+        CustomAppbar(title: "Notes", icon: Icons.search),
         Expanded(
             child: ListView.builder(
           padding: EdgeInsets.zero,
@@ -28,29 +29,37 @@ class NotesBody extends StatelessWidget {
 }
 
 class CustomAppbar extends StatelessWidget {
-  const CustomAppbar({super.key});
-
+  const CustomAppbar({
+    Key? key,
+    required this.title,
+    this.icon,
+  }) : super(key: key);
+  final String title;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(12),
       child: Row(
         children: [
           Text(
-            "Notes",
+            title,
             style: TextStyle(fontSize: 20),
           ),
           Spacer(),
-          Searchicon(),
+          Customicon(icon: icon),
         ],
       ),
     );
   }
 }
 
-class Searchicon extends StatelessWidget {
-  const Searchicon({super.key});
-
+class Customicon extends StatelessWidget {
+  const Customicon({
+    Key? key,
+    required this.icon,
+  }) : super(key: key);
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,11 +68,12 @@ class Searchicon extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.1),
           borderRadius: BorderRadius.circular(10)),
-      child: const Center(
-          child: Icon(
-        Icons.search,
-        color: Colors.white,
-      )),
+      child: Center(
+        child: Icon(
+          icon,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
