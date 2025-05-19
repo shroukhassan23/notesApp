@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:notes_app/Custom_texrField.dart';
+import 'package:notes_app/NotesCubit/cubit/add_note_cubit_cubit.dart';
+import 'package:notes_app/models/NoteModel.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
@@ -28,8 +30,14 @@ class Notes extends StatefulWidget {
 class _NotesState extends State<Notes> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-
+  //final NoteModel _noteModel = NoteModel();
   String? title, subTitle;
+  var note1 = NoteModel(
+    title: 'Note 1',
+    subTitle: 'Subtitle 1',
+    Date: '2023-09-21',
+    color: 0xFFABCDEF,
+  );
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -37,7 +45,7 @@ class _NotesState extends State<Notes> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
           CustomField(
@@ -46,7 +54,7 @@ class _NotesState extends State<Notes> {
               title = value;
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           CustomField(
@@ -56,14 +64,16 @@ class _NotesState extends State<Notes> {
               subTitle = value;
             },
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Custombutton(
             ontap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
               } else {
                 autovalidateMode = AutovalidateMode.always;
-                setState(() {});
+                setState(() {
+                  AddNoteCubitCubit().addNote(note1); //*---
+                });
               }
             },
           ),
@@ -85,11 +95,11 @@ class Custombutton extends StatelessWidget {
       onTap: ontap,
       child: Container(
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 48, 221, 233),
+            color: const Color.fromARGB(255, 48, 221, 233),
             borderRadius: BorderRadius.circular(10)),
         width: MediaQuery.of(context).size.width,
         height: 55,
-        child: Center(
+        child: const Center(
           child: Text("Add"),
         ),
       ),

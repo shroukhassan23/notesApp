@@ -12,13 +12,13 @@ class NotesBody extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        CustomAppbar(title: "Notes", icon: Icons.search),
+        const CustomAppbar(title: "Notes", icon: Icons.search),
         Expanded(
             child: ListView.builder(
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+            return const Padding(
+              padding: EdgeInsets.symmetric(vertical: 5),
               child: NotesItem(),
             );
           },
@@ -39,14 +39,14 @@ class CustomAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           ),
-          Spacer(),
+          const Spacer(),
           Customicon(icon: icon),
         ],
       ),

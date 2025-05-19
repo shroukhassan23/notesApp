@@ -13,7 +13,7 @@ class NotesItem extends StatelessWidget {
         onTap: () {
           Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return Scaffold(
+              return const Scaffold(
                 body: EditNoteView(),
               );
             },
@@ -29,7 +29,7 @@ class NotesItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: ListTile(
-                  title: Text(
+                  title: const Text(
                     "Flutter Tips",
                     style: TextStyle(fontSize: 24, color: Colors.black),
                   ),
@@ -40,7 +40,7 @@ class NotesItem extends StatelessWidget {
                   ),
                   trailing: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.trash,
                         color: Colors.black,
                       )),

@@ -4,7 +4,7 @@ class CustomField extends StatelessWidget {
   final Function(String?)? onSaved;
   final String HintText;
   final int maxLines;
-  CustomField({
+  const CustomField({
     Key? key,
     this.onSaved,
     required this.HintText,
@@ -23,13 +23,13 @@ class CustomField extends StatelessWidget {
         }
       },
       maxLines: maxLines,
-      cursorColor: Color.fromARGB(255, 48, 221, 233),
+      cursorColor: const Color.fromARGB(255, 48, 221, 233),
       decoration: InputDecoration(
           border: BuildBorder(),
           enabledBorder: BuildBorder(),
-          focusedBorder: BuildBorder(Color.fromARGB(255, 48, 221, 233)),
+          focusedBorder: BuildBorder(const Color.fromARGB(255, 48, 221, 233)),
           hintText: HintText,
-          hintStyle: TextStyle(color: Color.fromARGB(255, 48, 221, 233))),
+          hintStyle: const TextStyle(color: Color.fromARGB(255, 48, 221, 233))),
     );
   }
 
